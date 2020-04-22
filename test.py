@@ -1,4 +1,5 @@
 import signal, os
+from time import sleep
 from subprocess import Popen, run, DEVNULL
 from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
@@ -19,6 +20,7 @@ if __name__ == '__main__':
                 raise
             if not pipe:
                 pipe = Popen('./serve_api.sh', start_new_session=True)
+        sleep(1)
     else:
         resp = urlopen(f"{HOST}/?commodity=mango&price=53&tons=405")
     
