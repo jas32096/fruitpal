@@ -26,6 +26,12 @@ Docs at `/docs` and `/redoc`
 
 Both commands will setup your environment for you, if needed. 
 
+If you're on Linux, make sure you add _brew_ to your path.
+
+Either `/home/linuxbrew/.linuxbrew/bin` or `home/$USER/.linuxbrew/bin`
+
+Also ensure that you have `clang` installed.
+
 ---
 
 ```http

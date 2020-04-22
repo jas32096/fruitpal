@@ -13,11 +13,11 @@ if ! brew ls --versions pcre > /dev/null; then
     brew install pcre
 fi
 
-SQLITE=$(brew --prefix sqlite3)/bin/sqlite3
+SQLITE=$(brew --prefix sqlite3)
+PCRE=$(brew --prefix pcre)
 
-# Build shared object for sqlite3-pcre
 if [[ ! -f pcre.so ]]; then
-    clang -shared -o pcre.so -L/usr/local/lib -lsqlite3 -lpcre -Werror pcre.c -I/usr/local/include
+    clang -shared -o pcre.so -L$SQLITE/lib -L$PCRE/lib -lsqlite3 -lpcre -Werror pcre.c -I$SQLITE/include -I$PCRE/include -fPIC
 fi
 
 # Convert JSON to CSV for import
@@ -33,8 +33,8 @@ with open('data.json') as jsonfile:
 EOF
 
 # Create table, if needed. Import data
-$SQLITE data.db << EOF
-.load pcre.so
+$SQLITE/bin/sqlite3 data.db << EOF
+.load $(pwd)/pcre.so
 
 CREATE TABLE IF NOT EXISTS commodities (
     country TEXT NOT NULL CHECK(LENGTH(country) == 2),

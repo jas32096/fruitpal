@@ -6,8 +6,11 @@ if [[ ! -f data.db ]]; then
     ./create_db.sh
 fi
 
+SQLITE=$(brew --prefix sqlite3)
+PCRE=$(brew --prefix pcre)
+
 if [[ ! -f pcre.so ]]; then
-    clang -shared -o pcre.so -L/usr/local/lib -lsqlite3 -lpcre -Werror pcre.c -I/usr/local/include
+    clang -shared -o pcre.so -L$SQLITE/lib -L$PCRE/lib -lsqlite3 -lpcre -Werror pcre.c -I$SQLITE/include -I$PCRE/include -fPIC
 fi
 
 if [[ ! -f .venv/bin/activate ]]; then
