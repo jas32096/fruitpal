@@ -11,9 +11,9 @@ HOST = 'http://localhost:8000'
 # but this was adaped from an earlier script<test.py> which didn't use unittest,                                    #
 # and I wanted to avoid adding requests as a dependency.                                                            #
 #                                                                                                                   #
-#                        +-----------------------------------------------------------------------+                  #
-#                        | Added, at the recommendation of Andy's, after my video call with him. |                  #
-#                        +-----------------------------------------------------------------------+                  #
+#                          +---------------------------------------------------------------------+                  #
+#                          | Added, at the recommendation of Andy, after my video call with him. |                  #
+#                          +---------------------------------------------------------------------+                  #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 def setUpModule():
