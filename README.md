@@ -7,6 +7,22 @@ Docs at `/docs` and `/redoc`
 `./serve_api.sh` to run.
 
 `python3 test.py` run tests.
+<details>
+  <summary>or use unittest</summary>
+
+  ```sh
+  python3 -m unittest
+  ```
+  or explicitly
+
+  ```sh
+  python3 -m unittest test_using_unittest.py
+  ```
+
+  Because `test_using_unittest.py` redirects `serve_api.sh`'s _stdout_ and _stderr_ to `/dev/null`,
+  it's a bad idea to run this, if you don't already have, at least homebrew installed on your machine.
+  Run `serve_api.sh` first or use `test.py`
+</details>
 
 Both commands will setup your environment for you, if needed. 
 
