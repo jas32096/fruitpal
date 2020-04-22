@@ -24,7 +24,7 @@ Docs at `/docs` and `/redoc`
   Run `serve_api.sh` first or use `test.py`
 </details>
 
-Both commands will setup your environment for you, if needed. 
+Both commands will setup your environment for you, if needed. However, running `serve_api.sh` before `test.py` will be most likely, to product the best results.
 
 If you're on Linux, make sure you add _brew_ to your path.
 
